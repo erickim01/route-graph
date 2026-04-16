@@ -1,0 +1,73 @@
+    Static Base 1       (5) // Removed in Update 46
+    Static Base 2       (6) // Removed in Update 46
+    Static Base 3       (7) // Removed in Update 46
+
+    Forward Base 1      (8)
+    Forward Base 2      (9) // Removed in Update 50
+    Forward Base 3      (10) // Removed in Update 50
+
+    Hospital            (11)
+    Vehicle Factory     (12)
+    Armory              (13) // Removed in previous update
+    Supply Station      (14) // Removed in previous update
+    Workshop            (15) // Removed in previous update
+    Manufacturing Plant (16) // Removed in previous update
+    Refinery            (17)
+    Shipyard            (18)
+    Tech Center         (19) (Engineering Center in Update 37)
+
+    Salvage Field       (20)
+    Component Field     (21)
+    Fuel Field          (22)
+    Sulfur Field        (23)
+    World Map Tent      (24)
+    Travel Tent         (25)
+    Training Area       (26)
+    Special Base (Keep) (27) Update 14
+    Observation Tower   (28) Update 14
+    Fort                (29) Update 14
+    Troop Ship          (30) Update 14
+    Sulfur Mine         (32) Update 16
+    Storage Facility    (33) Update 17
+    Factory             (34) Update 17
+    Garrison Station    (35) Update 20
+    Ammo Factory        (36) // Removed in previous update
+    Rocket Site         (37) Update 20
+    Salvage Mine        (38) Update 22
+    Construction Yard   (39) Update 26
+    Component Mine      (40) Update 26
+    Oil Well            (41) // Removed in Update 50
+	
+    Relic Base 1        (45) Update 32
+    Relic Base 2        (46) // Removed in Update 52 until further notice (use Relic Base 1)
+    Relic Base 3        (47) // Removed in Update 52 until further notice (use Relic Base 1)
+	
+    Mass Production Factory (51) Update 35
+    Seaport                 (52) Update 37
+    Coastal Gun             (53) Update 37
+    Soul Factory            (54) Update 39
+	
+    Town Base 1        (56) Update 46
+    Town Base 2        (57) Update 46
+    Town Base 3        (58) Update 46
+	
+    Storm Cannon       (59) Update 47
+    Intel Center       (60) Update 47
+	
+    Coal Field         (61) Update 50
+    Oil Field          (62) Update 50
+	
+    Rocket Target            (70) Update 54
+    Rocket Ground Zero       (71) Update 54
+    Rocket Site With Rocket  (72) Update 54
+	
+    Facility Mine Oil Rig    (75) Update 54
+	
+    Weather Station    (83) Update 57
+    Mortar House       (84) Update 58
+	
+    Aircraft Depot         (88) Update 63
+    Aircraft Factory       (89) Update 63
+    Aircraft Radar         (90) Update 63
+    Aircraft Runway (T1)   (91) Update 63
+    Aircraft Runway (T2)   (92) Update 63
