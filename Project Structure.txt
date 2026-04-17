@@ -1,0 +1,14 @@
+	route-graph/
+├── src/
+│   └── foxhole_logi/
+│       ├── __init__.py              # expose public API here
+│       ├── core.py                  # main Engine class, War API client
+│       ├── models.py                # Pydantic models (ResourceNode, Route, etc.)
+│       ├── graph.py                 # NetworkX graph building & pathfinding
+│       ├── viz.py                   # optional: render_to_image_bytes() → returns PNG bytes
+│       ├── api_client.py            # Foxhole War API wrapper (cached)
+│       └── utils.py
+├── tests/                           # pytest tests for core logic only
+├── pyproject.toml                   # packaging config (modern way)
+├── README.md
+└── LICENSE
