@@ -1,15 +1,47 @@
 # route-graph
-Analyzes regions of Foxhole MMO and determines optimized graph of resource nodes.
+Analyzes regions of Foxhole MMO and determines optimized graph of resource nodes based on roads.
 
 
 ## Design Documentation
-So currently I have these three functions that perform a variety of GETs. The User is going to pick a region (each region in the game is a server) they want to put under analysis, and when that happens we need to verify the server is active in this current war - getActiveRegions() is the request that returns that info.
+
+MVP - User selects a region, and a desired resource (components). Regional data is fetched and finds midpoint of resources
+      based on distance to drive on roads. Returns image graph displaying best route between nodes and centralized location.
+
+
+List of active servers may be considered static.
  
-List of active servers may be considered static
- 
+### User Query
 
-On first run, "getActiveRegions()" is called and caches the resulting list.
+- User must choose a valid region to analyze.
 
-New war check. If new war detected, "getActiveRegions" runs again.
+- User must choose a valid resource (currently only one at a time).
 
-3. User must choose a valid region to analyze.
+### Static Data Handling
+
+- On first run, "getActiveRegions()" is called.
+
+- Cache of region list for Shard.
+
+- For each region, Call and cache:
+    - resource node location
+    - Refinery
+    - Depot / Seaports
+    - Road & Type / Mountain / Landscape
+
+- New war check. If new war detected, "getActiveRegions()" runs again.
+
+### Graph Logic
+
+- Meaningfully use resource node and road location data to determine valid route on a field
+    (??? Put entire map into array ???)
+
+### Output
+
+- Fetch resulting data from previous section
+
+- Get image of region
+
+- Draw corresponding path of determined route onto image
+
+- Option to return this image and data from previous section
+
