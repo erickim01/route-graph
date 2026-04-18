@@ -11,18 +11,18 @@ import requests
 BASE_URL = "https://war-service-live.foxholeservices.com/api/worldconquest"   #For now this goes to Able only
 
 class FoxWarApiClient:
-    def get_war_data(self):       #May be generalized in behavior later to allow GETs to Baker and Charlie
+    def get_war_data(self) -> dict[str, Any]:       #May be generalized in behavior later to allow GETs to Baker and Charlie
         r = requests.get(f"{BASE_URL}/war")
         r.raise_for_status()
         return r.json()
 
     #Returns Valid Regions
-    def get_active_regions(self):       
+    def get_active_regions(self) ->list[str]:       
         r = requests.get(f"{BASE_URL}/maps")
         r.raise_for_status()
         return r.json()
 
-    def get_map_data(self):       #May be generalized in behavior later to allow GETs to Baker and Charlie
+    def get_map_data(self) -> list[str]:       #May be generalized in behavior later to allow GETs to Baker and Charlie
         r = requests.get(f"{BASE_URL}/maps/")
         r.raise_for_status()
         return r.json()
