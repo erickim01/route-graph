@@ -1,4 +1,5 @@
 import requests
+from typing import Any
 
 ### Wrapper to War API
 #
@@ -22,14 +23,18 @@ class FoxWarApiClient:
         r.raise_for_status()
         return r.json()
 
-    def get_map_data(self) -> list[str]:       #May be generalized in behavior later to allow GETs to Baker and Charlie
-        r = requests.get(f"{BASE_URL}/maps/")
+    def get_map_data(self, requested_map_name: str) -> list[str]:       #May be generalized in behavior later to allow GETs to Baker and Charlie
+        r = requests.get(f"{BASE_URL}/maps/{requested_map_name}/static")
         r.raise_for_status()
-        return r.json()
+        return r.json()   
+    
+    #:mapName/static
+    
+
 
 
 client = FoxWarApiClient()
-data = client.get_map_data()
+data = client.get_map_data("TheFingersHex")
 print(data)
 
 # for key, value in data.items():
