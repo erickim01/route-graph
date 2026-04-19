@@ -13,7 +13,7 @@ from pathlib import Path
 # Static Caching
 
 BASE_URL = "https://war-service-live.foxholeservices.com/api/worldconquest"   #For now this goes to Able only
-
+REGION_LIST_PATH = "regions_list.json"
 
 def get_war_data() -> dict[str, Any]:       #May be generalized in behavior later to allow GETs to Baker and Charlie
     r = requests.get(f"{BASE_URL}/war")
@@ -21,15 +21,12 @@ def get_war_data() -> dict[str, Any]:       #May be generalized in behavior late
     return r.json()
 
 #Returns Valid Regions. Runs once per war to store regions active.
-def get_active_regions(slf) ->list[str]:  
+def get_active_regions() ->list[str]:  
     r = requests.get(f"{BASE_URL}/maps")            #TODOTODOTODO: Implement New War Check.
     r.raise_for_status()
-    cache_valid_regions(r)
+    with open(REGION_LIST_PATH, "w") as f:         #TODOTODOTODO: Build Path with current War number.
+        json.dump(r.json(), f)
     return r.json()
-
-def cache_valid_regions(requestData: dict | list) -> None:
-    with open("regions_list.json()", "w") as f:         #TODOTODOTODO: Build Path with current War number.
-        json.dump(requestData.json(), f)
 
 def fetch_cached_data(path: str) -> dict | list:
     with open(path, "r") as f:
@@ -48,8 +45,8 @@ requests_cache.install_cache(
     expire_after=None,
 )
 
-def get_map_data(REGION_NAME: str) -> list[str]:       
-    r = requests.get(f"{BASE_URL}/maps/{REGION_NAME}/static") #Input Validation is assumed to be handled at this point
+def get_map_data(region_name: str) -> list[str]:       
+    r = requests.get(f"{BASE_URL}/maps/{region_name}/static") #Input Validation is assumed to be handled at this point
     r.raise_for_status()
     #cache_map_data(r)
     return r.json()
@@ -58,6 +55,18 @@ def get_map_data(REGION_NAME: str) -> list[str]:
 # def cache_map_data(requestData: dict | list) -> None:
 #     with open("map_data.json", "w") as f:
 #         json.dump(requestData.json(), f)
+
+
+
+#print(fetch_cached_data(REGION_LIST_PATH))
+print(get_map_data("AcrithiaHex"))
+
+
+
+
+
+
+
 
 # for key, value in data.items():
 #     print(f"{key}   -    Value: {value}")
