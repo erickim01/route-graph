@@ -1,16 +1,24 @@
-import json
+import json                 #api_client.py imports 
 import requests
 import requests_cache
 from typing import Any
-from pathlib import Path
+from pathlib import Path    #end of api_client.py imports
+#import null            #core.py imports
+
+#######################
+#---API_CLIENT WORK---#
+#######################
 
 ### Wrapper to War API
 #
 # URL Construction
 #
-# Response Handling
-#
-# Static Caching
+# Response Handling & Caching
+
+#TODOTODOTODO: get_active_regions() - Implement New War Check.
+#TODOTODOTODO: get_active_regions() - Build Path with current War number.
+
+#TODOTODOTODO: get_map_data(region_name: str) - Implement error handle to ensure a valid region is selected, here or elsewhere
 
 BASE_URL = "https://war-service-live.foxholeservices.com/api/worldconquest"   #For now this goes to Able only
 REGION_LIST_PATH = "regions_list.json"
@@ -32,13 +40,10 @@ def fetch_cached_data(path: str) -> dict | list:
     with open(path, "r") as f:
         return json.load(f)
 
-
-
 #User is presented with list of valid regions
 #Selects ex. "The Fingers"
 #Read into backend as "TheFingersHex"
-#Error handle to ensure a valid region is selected
-#Path must GET with "TheFingersHex" and store in a similarly-named dump.
+#TODOTODOTODO: Implement error handle to ensure a valid region is selected, here or elsewhere
 requests_cache.install_cache(
     cache_name='regions_cache',
     backend='sqlite',
@@ -56,17 +61,21 @@ def get_map_data(region_name: str) -> list[str]:
 #     with open("map_data.json", "w") as f:
 #         json.dump(requestData.json(), f)
 
-
-
-#print(fetch_cached_data(REGION_LIST_PATH))
-print(get_map_data("AcrithiaHex"))
-
-
+############
+#---CORE---#
+############
 
 
 
 
 
+
+
+
+
+############
+#---CORE---#
+############
 
 # for key, value in data.items():
 #     print(f"{key}   -    Value: {value}")
