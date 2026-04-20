@@ -84,3 +84,53 @@ class WarApiClient:
     def _save_to_cache(self, regions: list[str]) -> None:
         with open(self._active_regions_cache_file, "w") as f:
             json.dump(regions, f)
+
+
+import requests
+import json
+from pathlib import Path
+from typing import Any
+
+BASE_URL = "https://example-service-live.myExampleService.com/api"
+
+class exampleApiClient:
+    def __init__(self):
+        pass    #Fill in whatever parameters you need here.
+
+    def check_if_cached(self) -> bool:
+        pass    #Logic to check if a cache exists.
+
+    def write_to_cache(self, someType):     #replace someType with the correct argument.
+        pass    #Logic to save someType argument data to a new file.
+
+    def get_static_data(self) -> dict[str, Any]:
+        self.check_if_cached()
+        r = requests.get(f"{BASE_URL}/exampleDir/root")
+        r.raise_for_status
+        self.write_to_cache(r.json())
+        return r.json()
+    
+
+
+import requests
+import json
+from pathlib import Path
+from typing import Any
+
+BASE_URL = "https://example-service-live.myExampleService.com/api"
+
+class exampleApiClient:
+    def __init__(self, cache_dir: Path | None = None) -> None:
+        self.cache_dir = cache_dir or Path.home() / ".example.cache"
+        self.cache_dir.mkdir(parents=True, exist_ok=True)
+        self.cache_file = self.cache_dir / "static_data.json"
+
+    def get_static_data(self) -> dict[str, Any]:
+        if (self.cache_file.exists()):
+            with open(self.cache_file) as f:
+                return json.load(f)
+        r = requests.get(f"{BASE_URL}/exampleDir/root")
+        r.raise_for_status()
+        with open(self.cache_file, "w") as f:
+            json.dump(r.json(), f, indent=1)
+        return r.json()
