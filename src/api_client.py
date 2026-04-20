@@ -43,17 +43,3 @@ class FoxWarApiClient:
         return r.json()   
     
     #:mapName/static
-    
-
-
-
-client = FoxWarApiClient()
-data = client.get_map_data("TheFingersHex")
-print(data)
-
-# for key, value in data.items():
-#     print(f"{key}   -    Value: {value}")
-
-
-
-#warData['winner']

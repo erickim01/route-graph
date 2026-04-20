@@ -3,7 +3,8 @@ import requests
 import requests_cache
 from typing import Any
 from pathlib import Path    #end of api_client.py imports
-#import null            #core.py imports
+import networkx as nx          #core.py imports
+import matplotlib.pyplot as plt
 
 #######################
 #---API_CLIENT WORK---#
@@ -64,6 +65,34 @@ def get_map_data(region_name: str) -> list[str]:
 ############
 #---CORE---#
 ############
+
+G = nx.Graph()
+G.add_node(0)
+
+
+#####################################
+#####Graph Image Config Settings#####
+#####################################
+fig, ax = plt.subplots()
+nx.draw_networkx(G, with_labels=False, node_shape='o', node_size=150, node_color='lightblue',
+                 edge_color='black', width=2)
+ax.set_facecolor('gray')
+ax.axis('off')
+fig.set_facecolor('gray')
+#####################################
+#####Graph Image Config Settings#####
+#####################################
+plt.show()
+
+
+
+
+
+
+
+
+
+
 
 
 
